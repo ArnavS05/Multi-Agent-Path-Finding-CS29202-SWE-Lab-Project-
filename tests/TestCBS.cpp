@@ -170,3 +170,46 @@ TEST_CASE("Test Case 9") {
     bool result = test(grid, agents);
     REQUIRE(result==true);
 }
+
+TEST_CASE("Test Case 10") {
+    vector<vector<bool>> grid = {
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {1, 1, 1, 1, 1, 1, 1, 1},
+        {0, 0, 0, 0, 0, 0, 0, 0}
+    };
+    vector<Agent> agents = {
+        Agent({1,0}, {1,7}),
+        Agent({1,7}, {1,0}),
+        Agent({1,3}, {1,4})
+    };
+    bool result = test(grid, agents);
+    REQUIRE(result==false);
+}
+
+TEST_CASE("Test Case 11") {
+    vector<vector<bool>> grid = {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0}
+    };
+    vector<Agent> agents = {
+        Agent({1,0}, {1,8}),
+        Agent({1,8}, {1,0}),
+        Agent({1,3}, {1,4})
+    };
+    bool result = test(grid, agents);
+    REQUIRE(result==false);
+}
+
+TEST_CASE("Test Case 12") {
+    vector<vector<bool>> grid = {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {1, 1, 1, 1, 0, 1, 1, 1, 1},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0}
+    };
+    vector<Agent> agents = {
+        Agent({1,0}, {1,8})
+    };
+    bool result = test(grid, agents);
+    REQUIRE(result==false);
+}

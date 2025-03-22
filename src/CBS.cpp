@@ -75,15 +75,6 @@ bool operator==(const Conflict &c1, const Conflict &c2){
     return c1.conflict_type == c2.conflict_type && c1.agent1 == c2.agent1 && c1.agent2 == c2.agent2 && c1.position == c2.position && c1.position2 == c2.position2;
 }
 
-bool operator==(const pair<Conflict, vector<pair<int, int>>> &p1, const pair<Conflict, vector<pair<int, int>>> &p2) {
-    if (!(p1.first == p2.first)) return false;
-    if (p1.second.size() != p2.second.size()) return false;
-    for (size_t i = 0; i < p1.second.size(); i++) {
-        if (p1.second[i] != p2.second[i]) return false;
-    }
-    return true;
-}
-
 int Leaf::f_cost() const {
     int cost = 0;
     for (const auto& path : solution) {
