@@ -703,27 +703,5 @@ void GUI::render() {
 }
 
 void GUI::setupFonts() {
-    if (!font.loadFromFile("/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf")) {
-        // Use system font if arial not available
-        if (!font.loadFromFile("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")) {
-            // Fallback to any available font
-            vector<string> fontPaths = {
-                "/System/Library/Fonts/Helvetica.ttc",
-                "C:\\Windows\\Fonts\\arial.ttf",
-                "/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf"
-            };
-            
-            bool fontLoaded = false;
-            for (const auto& path : fontPaths) {
-                if (font.loadFromFile(path)) {
-                    fontLoaded = true;
-                    break;
-                }
-            }
-            
-            if (!fontLoaded) {
-                cerr << "Warning: Could not load any font. Text may not display correctly." << endl;
-            }
-        }
-    }
+    font.loadFromFile("../Font/Ubuntu-R.ttf");
 }
