@@ -4,7 +4,7 @@
 using namespace std;
 
 //This assumes that after reaching its end point, the agent will enter its docking station which is one of the obstacles 
-//or is outside the grid.
+//or is outside the grid or is underground.
 
 
 Leaf::Leaf(vector<Constraint> c, Leaf *p, vector<Agent*> a, vector<pair<Conflict, vector<pair<int, int>>>> conf) 

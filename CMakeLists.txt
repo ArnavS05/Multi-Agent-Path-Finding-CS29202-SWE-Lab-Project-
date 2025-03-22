@@ -47,6 +47,7 @@ add_test(NAME CBSTest COMMAND MAEPFTest)
 
 # Link Libraries Correctly
 target_link_libraries(MAEPFProject PRIVATE pthread dl util sfml-system sfml-window sfml-graphics)
+target_link_libraries(MAEPFTest PRIVATE pthread dl util sfml-system sfml-window sfml-graphics)
 # In the above line, the last 3 things are related to GUI
 
 
