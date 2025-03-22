@@ -54,7 +54,7 @@ target_link_libraries(MAEPFTest PRIVATE pthread dl util sfml-system sfml-window 
 
 add_custom_target(coverage
     COMMAND ${LCOV_PATH} --capture --directory . --output-file coverage.info
-    COMMAND ${LCOV_PATH} --remove coverage.info '/usr/*' '*/tests/*' '*/cmake_tests/include/*' --output-file coverage_filtered.info
+    COMMAND ${LCOV_PATH} --remove coverage.info '/usr/*' '*/tests/*' '*/cmake_tests/include/*' '*/include/catch2.hpp' --output-file coverage_filtered.info
     COMMAND ${GENHTML_PATH} coverage_filtered.info --output-directory coverage_report
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Creating coverage"
