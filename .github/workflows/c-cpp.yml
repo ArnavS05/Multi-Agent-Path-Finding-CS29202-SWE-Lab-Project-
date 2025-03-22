@@ -43,6 +43,10 @@ jobs:
       working-directory: build
       run: ctest --output-on-failure
 
+    - name: Run Catch2 tests and print output
+      working-directory: build
+      run: ./MAEPFTest --reporter console || true
+
     - name: Generate Coverage Report
       working-directory: build
       run: |
