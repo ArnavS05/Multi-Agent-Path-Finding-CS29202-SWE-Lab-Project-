@@ -24,6 +24,17 @@ find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 # GUI related stuff ends here
 
 
+find_program(LCOV_PATH lcov)
+find_program(GENHTML_PATH genhtml)
+
+if (NOT LCOV_PATH)
+    message(FATAL_ERROR "lcov not found")
+endif()
+
+if (NOT GENHTML_PATH)
+    message(FATAL_ERROR "genhtml not found")
+endif()
+
 
 # Define Executables
 add_executable(MAEPFProject main.cpp src/CBS.cpp src/AStar.cpp)
