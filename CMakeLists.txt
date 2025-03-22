@@ -37,7 +37,7 @@ endif()
 
 
 # Define Executables
-add_executable(MAEPFProject main.cpp src/CBS.cpp src/AStar.cpp)
+add_executable(MAEPFProject main.cpp src/CBS.cpp src/AStar.cpp src/GUI.cpp)
 add_executable(MAEPFTest tests/TestCBS.cpp src/CBS.cpp src/AStar.cpp)
 
 
