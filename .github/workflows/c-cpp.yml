@@ -37,7 +37,7 @@ jobs:
 
     - name: List all tests inside CBSTest (Debug step)
       working-directory: build
-      run: ./CBSTest --gtest_list_tests
+      run: ./MAEPFTest --gtest_list_tests
 
     - name: Run unit tests
       working-directory: build
