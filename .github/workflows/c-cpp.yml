@@ -1,0 +1,51 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake g++ lcov libsfml-dev
+
+    - name: Create build directory
+      run: mkdir build
+
+    - name: Configure CMake
+      working-directory: build
+      run: cmake ..
+
+    - name: Build project
+      working-directory: build
+      run: cmake --build . -- -j$(nproc)
+
+    - name: Run unit tests
+      working-directory: build
+      run: ctest --output-on-failure
+
+    - name: Generate Coverage Report
+      working-directory: build
+      run: |
+        make coverage
+        ls -lah coverage_report
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report
+        path: build/coverage_report
+
+    - name: Clean up coverage
+      working-directory: build
+      run: make coverage_clean
